@@ -33,6 +33,15 @@ public class RewardsCalculator {
 
         List<Transaction> testData = getTestData1();
 
+
+        // I can also do the whole calculation in one pass filling the customer maps and month maps while traversing
+        // and then calculate totals for each customer, may be i can explain this in the onsite interview
+        // requires more focused coding in one pass.
+        //
+        // but for now as i do not have some good time to focus i did it by grouping the transactions by customers first
+        // and then grouping the transactions mapped to each customer by month
+        // and then passing through transactions mapped to each month to each customer and calculating the rewards
+        // and summing the totals for each month
         Map<Long, List<Transaction>> groupByCustomerMap = new LinkedHashMap<>();
 
         testData
